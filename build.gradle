@@ -9,7 +9,7 @@ sourceCompatibility = 1.6
 targetCompatibility = 1.6
 
 group = 'com.github.rholder'
-version = '0.1.0-SNAPSHOT'
+version = '1.0.0'
 ext.packaging = 'jar'
 
 repositories {
@@ -103,7 +103,7 @@ task generateStandaloneJar(type: Jar, dependsOn: [generateRubyGemsJar, classes])
     }
 
     // add the gemjar jar file to the root of the final jar
-    from files(generateRubyGemsJarDev.outputs)
+    from files(generateRubyGemsJar.outputs)
 
     // rip out the LoadService
     from(configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }) {
